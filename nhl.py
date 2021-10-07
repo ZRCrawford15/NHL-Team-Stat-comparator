@@ -1,8 +1,5 @@
 import requests
 from team import *
-#
-
-
 
 
 def get_team_id(name, res):
@@ -18,7 +15,6 @@ def get_team_id(name, res):
             print(f"Key value is {key['id']}")
             return key['id']
 
-
 def get_team_object(ID, year):
     '''
     Gets the team stats based on the ID
@@ -29,7 +25,6 @@ def get_team_object(ID, year):
     res = requests.get(f"https://statsapi.web.nhl.com/api/v1/teams/{ID}?expand=team.stats&season={year}")
     team = res.json()
     return get_team_stats(team)
-
 
 def get_team_stats(res):
     return res['teams'][0]['teamStats'][0]['splits'][0]['stat']
