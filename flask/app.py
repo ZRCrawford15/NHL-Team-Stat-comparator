@@ -15,7 +15,6 @@ def index():
 @app.route('/compare', methods=['GET'])
 def handle_data():
     data = request.args
-    print(data)
     team_1 = data['team1']
     team_2 = data['team2']
     team_1_year = data['team1_year']
@@ -44,12 +43,8 @@ def handle_data():
     team_1_obj = nhl.get_team_object(team_1_ID, team_1_year_parsed)
     team_2_obj = nhl.get_team_object(team_2_ID, team_2_year_parsed)
 
-    print(team_1_obj)
-    print(team_2_obj)
 
-
-
-    return render_template('index.html')
+    return render_template('index.html', team1=team_1_obj, team2=team_2_obj)
 
 
 if __name__ == '__main__':

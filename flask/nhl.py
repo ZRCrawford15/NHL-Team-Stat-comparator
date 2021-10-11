@@ -34,15 +34,10 @@ def get_team_stats(resp):
     :param resp: team JSON object
     :return:
     """
+    # TODO: Check for valid input
     return resp['teams'][0]['teamStats'][0]['splits'][0]['stat']
 
 
-# def parse_year(year):
-#     filtered_year = year
-#     dash = '-'
-#     for char in dash:
-#         filtered_year = filtered_year.replace(char, '')
-#     return filtered_year
 
 
 if __name__ == "__main__":
