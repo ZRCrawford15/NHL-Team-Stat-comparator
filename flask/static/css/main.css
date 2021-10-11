@@ -1,0 +1,40 @@
+body {
+    margin: 100px 240px 32px;
+    font-family: sans-serif;
+
+}
+
+.images {
+    border-radius: 4px;
+    background-color: #F3F3F3;
+
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+img {
+    background-color: crimson;
+    color: white;
+    padding: 8px;
+    margin: 12px;
+    border-radius: 4px;
+}
+
+
+.forms {
+    display: flex;
+    justify-content: space-between;
+}
+
+.statistics {
+    display: flex;
+    justify-content: space-between;
+}
+
+th, td {
+    border: 1px solid black;
+}
+
+
