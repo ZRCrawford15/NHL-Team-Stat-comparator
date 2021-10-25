@@ -1,0 +1,240 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+
+<h1 class="header">NHL Team Stat Comparator</h1>
+<button>Pick new teams</button>
+
+<div class="images">
+    <div>
+        <img src="https://1000logos.net/wp-content/uploads/2017/05/NHL-Logo.png" width="250px" >
+    </div>
+
+    <div>
+        <img src="https://1000logos.net/wp-content/uploads/2017/05/NHL-Logo.png" width="250px">
+    </div>
+</div>
+
+
+<div>
+    <form action="/compare" method="get" class = forms>
+        <div class="team1">
+            <label for="team1">Choose a Team</label>
+            <select id="team1" name="team1">
+                <option value="Anaheim Ducks">Anaheim Ducks</option>
+                <option value="Arizona Coyotes">Arizona Coyotes</option>
+                <option value="Boston Bruins">"Boston Bruins"</option>
+                <option value="Buffalo Sabres">Buffalo Sabres</option>
+                <option value="Calgary Flames">Calgary Flames</option>
+                <option value="Carolina Hurricanes">Carolina Hurricanes</option>
+                <option value="Chicago Blackhawks">Chicago Blackhawks</option>
+                <option value="Colorado Avalanche">Colorado Avalanche</option>
+                <option value="Columbus Blue Jackets">Columbus Blue Jackets</option>
+                <option value="Dallas Stars">Dallas Stars</option>
+                <option value="Detroit Red Wings">Detroit Red Wings</option>
+                <option value="Edmonton Oilers">Edmonton Oilers</option>
+                <option value="Florida Panthers">Florida Panthers</option>
+                <option value="Los Angeles Kings">Los Angeles Kings</option>
+                <option value="Minnesota Wild">Minnesota Wild</option>
+                <option value="Montreal Canadians">Montreal Canadians</option>
+                <option value="Nashville Predators">Nashville Predators</option>
+                <option value="New Jersey Devils">New Jersey Devils</option>
+                <option value="New York Islanders">New York Islanders</option>
+                <option value="New York Rangers">New York Rangers</option>
+                <option value="Ottawa Senators">Ottawa Senators</option>
+                <option value="Philadelphia Flyers">Philadelphia Flyers</option>
+                <option value="Pittsburgh Penguins">Pittsburgh Penguins</option>
+                <option value="San Jose Sharks">San Jose Sharks</option>
+                <option value="Seattle Kraken">Seattle Kraken</option>
+                <option value="St. Louis Blues">St. Louis Blues</option>
+                <option value="Toronto Maple Leafs">Toronto Maple Leafs</option>
+                <option value="Vancouver Canucks">Vancouver Canucks</option>
+                <option value="Vegas Golden Knights">Vegas Golden Knights</option>
+                <option value="Washington Capitals">Washington Capitals</option>
+                <option value="Winnipeg Jets">Winnipeg Jets</option>
+            </select>
+            <div class="team1_year"><br>
+                <label for="team1_year">Enter a Season (YYYY-YYYY)<br></label>
+                    <input type="text" id="team1_year" name="team1_year"><br>
+            </div>
+        </div>
+        <div>
+            <button type="submit" onsubmit="event.preventDefault()">Compare!</button>
+        </div>
+        <div class="team2">
+            <label for="team2">Choose a Team</label>
+            <select id="team2" name="team2">
+                <option value="Anaheim Ducks">Anaheim Ducks</option>
+                <option value="Arizona Coyotes">Arizona Coyotes</option>
+                <option value="Boston Bruins">"Boston Bruins"</option>
+                <option value="Buffalo Sabres">Buffalo Sabres</option>
+                <option value="Calgary Flames">Calgary Flames</option>
+                <option value="Carolina Hurricanes">Carolina Hurricanes</option>
+                <option value="Chicago Blackhawks">Chicago Blackhawks</option>
+                <option value="Colorado Avalanche">Colorado Avalanche</option>
+                <option value="Columbus Blue Jackets">Columbus Blue Jackets</option>
+                <option value="Dallas Stars">Dallas Stars</option>
+                <option value="Detroit Red Wings">Detroit Red Wings</option>
+                <option value="Edmonton Oilers">Edmonton Oilers</option>
+                <option value="Florida Panthers">Florida Panthers</option>
+                <option value="Los Angeles Kings">Los Angeles Kings</option>
+                <option value="Minnesota Wild">Minnesota Wild</option>
+                <option value="Montreal Canadians">Montreal Canadians</option>
+                <option value="Nashville Predators">Nashville Predators</option>
+                <option value="New Jersey Devils">New Jersey Devils</option>
+                <option value="New York Islanders">New York Islanders</option>
+                <option value="New York Rangers">New York Rangers</option>
+                <option value="Ottawa Senators">Ottawa Senators</option>
+                <option value="Philadelphia Flyers">Philadelphia Flyers</option>
+                <option value="Pittsburgh Penguins">Pittsburgh Penguins</option>
+                <option value="San Jose Sharks">San Jose Sharks</option>
+                <option value="Seattle Kraken">Seattle Kraken</option>
+                <option value="St. Louis Blues">St. Louis Blues</option>
+                <option value="Toronto Maple Leafs">Toronto Maple Leafs</option>
+                <option value="Vancouver Canucks">Vancouver Canucks</option>
+                <option value="Vegas Golden Knights">Vegas Golden Knights</option>
+                <option value="Washington Capitals">Washington Capitals</option>
+                <option value="Winnipeg Jets">Winnipeg Jets</option>
+            </select>
+        <div class="team2_year"><br>
+            <label for="team2_year">Enter a Season (YYYY-YYYY)<br></label>
+            <input type="text" id="team2_year" name="team2_year"><br>
+        </div>
+        </div>
+    </form>
+
+</div>
+
+<div>
+    <div class="statistics">
+
+        <div class="team1_list">
+            <table class="team1_table">
+                <tr>
+                    <td id="wins_1"> </td>
+                </tr>
+                <tr>
+                    <td id="losses_1"></td>
+                </tr>
+                <tr>
+                   <td id="ot_1"></td>
+                </tr>
+                <tr>
+                   <td id="pts_1"></td>
+                </tr>
+                <tr>
+                    <td id="goals_per_game_1"></td>
+                </tr>
+                <tr>
+                  <td id="goals_against_per_game_1"></td>
+                </tr>
+                <tr>
+                    <td id="power_play_percentage_1"></td>
+                </tr>
+                <tr>
+                    <td id="penalty_kill_percentage_1"></td>
+                </tr>
+                <tr>
+                    <td id="shots_per_game_1"></td>
+                </tr>
+                <tr>
+                    <td id="shots_allowed_per_game_1"></td>
+                </tr>
+                <tr>
+                    <td id="save_percentage_1"></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <div class="stat_categories">
+
+         <table class="stat_table">
+                        <tr>
+                            <td class="wins">Wins</td>
+                        </tr>
+                        <tr>
+                            <td class="losses">Losses</td>
+                        </tr>
+                        <tr>
+                           <td class="ot">OT Losses</td>
+                        </tr>
+                        <tr>
+                           <td class="pts">Points</td>
+                        </tr>
+                        <tr>
+                            <td class="goals_per_game">Goals per Game</td>
+                        </tr>
+                        <tr>
+                          <td class="goals_against_per_game">Goals Against per Game</td>
+                        </tr>
+                        <tr>
+                            <td class="power_play_percentage">Power Play Percentage</td>
+                        </tr>
+                        <tr>
+                            <td class="penalty_kill_percentage">Penalty Kill Percentage</td>
+                        </tr>
+                        <tr>
+                            <td class="shots_per_game">Shots ger Game</td>
+                        </tr>
+                        <tr>
+                            <td class="shots_allowed_per_game">Shots Allowed per Game</td>
+                        </tr>
+                        <tr>
+                            <td class="save_percentage">Save Percentage</td>
+                        </tr>
+
+                    </table>
+
+        </div>
+
+                <div class="team2_list">
+                    <table class="team2_table">
+                        <tr>
+                            <td class="wins">0</td>
+                        </tr>
+                        <tr>
+                            <td class="losses">0</td>
+                        </tr>
+                        <tr>
+                           <td class="ot">0</td>
+                        </tr>
+                        <tr>
+                           <td class="pts">0</td>
+                        </tr>
+                        <tr>
+                            <td class="goals_per_game">0</td>
+                        </tr>
+                        <tr>
+                          <td class="goals_against_per_game">0</td>
+                        </tr>
+                        <tr>
+                            <td class="power_play_percentage">0</td>
+                        </tr>
+                        <tr>
+                            <td class="penalty_kill_percentage">0</td>
+                        </tr>
+                        <tr>
+                            <td class="shots_per_game">0</td>
+                        </tr>
+                        <tr>
+                            <td class="shots_allowed_per_game">0</td>
+                        </tr>
+                        <tr>
+                            <td class="save_percentage">0</td>
+                        </tr>
+
+                    </table>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

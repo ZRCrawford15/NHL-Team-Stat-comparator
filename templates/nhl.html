@@ -1,0 +1,356 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+  <h1 class="header">NHL Team Stat Comparator</h1>
+
+
+  <div class="images">
+      <div>
+          <img src="https://1000logos.net/wp-content/uploads/2017/05/NHL-Logo.png" width="250px" >
+      </div>
+
+      <div>
+          <img src="https://1000logos.net/wp-content/uploads/2017/05/NHL-Logo.png" width="250px">
+      </div>
+  </div>
+  <div class="forms">
+          <div class="team1">
+              <label for="team1">Choose a Team</label>
+              <select id="team_1_name" name="team1">
+                  <option value="Anaheim Ducks">Anaheim Ducks</option>
+                  <option value="Arizona Coyotes">Arizona Coyotes</option>
+                  <option value="Boston Bruins">Boston Bruins</option>
+                  <option value="Buffalo Sabres">Buffalo Sabres</option>
+                  <option value="Calgary Flames">Calgary Flames</option>
+                  <option value="Carolina Hurricanes">Carolina Hurricanes</option>
+                  <option value="Chicago Blackhawks">Chicago Blackhawks</option>
+                  <option value="Colorado Avalanche">Colorado Avalanche</option>
+                  <option value="Columbus Blue Jackets">Columbus Blue Jackets</option>
+                  <option value="Dallas Stars">Dallas Stars</option>
+                  <option value="Detroit Red Wings">Detroit Red Wings</option>
+                  <option value="Edmonton Oilers">Edmonton Oilers</option>
+                  <option value="Florida Panthers">Florida Panthers</option>
+                  <option value="Los Angeles Kings">Los Angeles Kings</option>
+                  <option value="Minnesota Wild">Minnesota Wild</option>
+                  <option value="Montreal Canadians">Montreal Canadians</option>
+                  <option value="Nashville Predators">Nashville Predators</option>
+                  <option value="New Jersey Devils">New Jersey Devils</option>
+                  <option value="New York Islanders">New York Islanders</option>
+                  <option value="New York Rangers">New York Rangers</option>
+                  <option value="Ottawa Senators">Ottawa Senators</option>
+                  <option value="Philadelphia Flyers">Philadelphia Flyers</option>
+                  <option value="Pittsburgh Penguins">Pittsburgh Penguins</option>
+                  <option value="San Jose Sharks">San Jose Sharks</option>
+                  <option value="Seattle Kraken">Seattle Kraken</option>
+                  <option value="St. Louis Blues">St. Louis Blues</option>
+                  <option value="Toronto Maple Leafs">Toronto Maple Leafs</option>
+                  <option value="Vancouver Canucks">Vancouver Canucks</option>
+                  <option value="Vegas Golden Knights">Vegas Golden Knights</option>
+                  <option value="Washington Capitals">Washington Capitals</option>
+                  <option value="Winnipeg Jets">Winnipeg Jets</option>
+              </select>
+              <div class="team_1_year"><br>
+                  <label for="team_1_year">Enter a Season (YYYY-YYYY)<br></label>
+                      <input type="text" id="team_1_year" name="team_1_year"><br>
+              </div>
+
+          </div>
+          <div>
+              <button id='submit' onclick="event.preventDefault()">Compare!</button>
+                          <div>
+                              <br>
+                <button id="reset" onclick="reset()">Pick new teams</button>
+            </div>
+          </div>
+
+          <div class="team2">
+              <label for="team_2_name">Choose a Team</label>
+              <select id="team_2_name" name="team2">
+                  <option value="Anaheim Ducks">Anaheim Ducks</option>
+                  <option value="Arizona Coyotes">Arizona Coyotes</option>
+                  <option value="Boston Bruins">Boston Bruins</option>
+                  <option value="Buffalo Sabres">Buffalo Sabres</option>
+                  <option value="Calgary Flames">Calgary Flames</option>
+                  <option value="Carolina Hurricanes">Carolina Hurricanes</option>
+                  <option value="Chicago Blackhawks">Chicago Blackhawks</option>
+                  <option value="Colorado Avalanche">Colorado Avalanche</option>
+                  <option value="Columbus Blue Jackets">Columbus Blue Jackets</option>
+                  <option value="Dallas Stars">Dallas Stars</option>
+                  <option value="Detroit Red Wings">Detroit Red Wings</option>
+                  <option value="Edmonton Oilers">Edmonton Oilers</option>
+                  <option value="Florida Panthers">Florida Panthers</option>
+                  <option value="Los Angeles Kings">Los Angeles Kings</option>
+                  <option value="Minnesota Wild">Minnesota Wild</option>
+                  <option value="Montreal Canadians">Montreal Canadians</option>
+                  <option value="Nashville Predators">Nashville Predators</option>
+                  <option value="New Jersey Devils">New Jersey Devils</option>
+                  <option value="New York Islanders">New York Islanders</option>
+                  <option value="New York Rangers">New York Rangers</option>
+                  <option value="Ottawa Senators">Ottawa Senators</option>
+                  <option value="Philadelphia Flyers">Philadelphia Flyers</option>
+                  <option value="Pittsburgh Penguins">Pittsburgh Penguins</option>
+                  <option value="San Jose Sharks">San Jose Sharks</option>
+                  <option value="Seattle Kraken">Seattle Kraken</option>
+                  <option value="St. Louis Blues">St. Louis Blues</option>
+                  <option value="Toronto Maple Leafs">Toronto Maple Leafs</option>
+                  <option value="Vancouver Canucks">Vancouver Canucks</option>
+                  <option value="Vegas Golden Knights">Vegas Golden Knights</option>
+                  <option value="Washington Capitals">Washington Capitals</option>
+                  <option value="Winnipeg Jets">Winnipeg Jets</option>
+              </select>
+          <div class="team2_year"><br>
+              <label for="team_2_year">Enter a Season (YYYY-YYYY)<br></label>
+              <input type="text" id="team_2_year" name="team_2_year"><br>
+          </div>
+          </div>
+
+  </div>
+
+  <div>
+      <div class="statistics">
+
+          <div class="team1_list">
+              <table class="team1_table">
+                  <tr>
+                      <td id="wins_1">&nbsp</td>
+                  </tr>
+                  <tr>
+                      <td id="losses_1">&nbsp</td>
+                  </tr>
+                  <tr>
+                     <td id="ot_1">&nbsp</td>
+                  </tr>
+                  <tr>
+                     <td id="pts_1">&nbsp</td>
+                  </tr>
+                  <tr>
+                      <td id="goals_per_game_1">&nbsp</td>
+                  </tr>
+                  <tr>
+                    <td id="goals_against_per_game_1">&nbsp</td>
+                  </tr>
+                  <tr>
+                      <td id="power_play_percentage_1">&nbsp</td>
+                  </tr>
+                  <tr>
+                      <td id="penalty_kill_percentage_1">&nbsp</td>
+                  </tr>
+                  <tr>
+                      <td id="shots_per_game_1">&nbsp</td>
+                  </tr>
+                  <tr>
+                      <td id="shots_allowed_per_game_1">&nbsp</td>
+                  </tr>
+                  <tr>
+                      <td id="save_percentage_1">&nbsp</td>
+                  </tr>
+
+              </table>
+
+          </div>
+
+          <div class="stat_categories">
+
+           <table class="stat_table">
+                          <tr>
+                              <td class="wins">Wins</td>
+                          </tr>
+                          <tr>
+                              <td class="losses">Losses</td>
+                          </tr>
+                          <tr>
+                             <td class="ot">OT Losses</td>
+                          </tr>
+                          <tr>
+                             <td class="pts">Points</td>
+                          </tr>
+                          <tr>
+                              <td class="goals_per_game">Goals per Game</td>
+                          </tr>
+                          <tr>
+                            <td class="goals_against_per_game">Goals Against per Game</td>
+                          </tr>
+                          <tr>
+                              <td class="power_play_percentage">Power Play Percentage</td>
+                          </tr>
+                          <tr>
+                              <td class="penalty_kill_percentage">Penalty Kill Percentage</td>
+                          </tr>
+                          <tr>
+                              <td class="shots_per_game">Shots ger Game</td>
+                          </tr>
+                          <tr>
+                              <td class="shots_allowed_per_game">Shots Allowed per Game</td>
+                          </tr>
+                          <tr>
+                              <td class="save_percentage">Save Percentage</td>
+                          </tr>
+
+                      </table>
+
+          </div>
+
+                  <div class="team2_list">
+                      <table class="team2_table">
+                          <tr>
+                              <!--
+                              <td id="wins_2_blank" style="border:none" bgcolor="red">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                              --->
+                              <td id="wins_2">&nbsp</td>
+
+                          </tr>
+                          <tr>
+                              <td id="losses_2">&nbsp</td>
+                          </tr>
+                          <tr>
+                             <td id="ot_2">&nbsp</td>
+                          </tr>
+                          <tr>
+                             <td id="pts_2">&nbsp</td>
+                          </tr>
+                          <tr>
+                              <td id="goals_per_game_2">&nbsp</td>
+                          </tr>
+                          <tr>
+                            <td id="goals_against_per_game_2">&nbsp</td>
+                          </tr>
+                          <tr>
+                              <td id="power_play_percentage_2">&nbsp</td>
+                          </tr>
+                          <tr>
+                              <td id="penalty_kill_percentage_2">&nbsp</td>
+                          </tr>
+                          <tr>
+                              <td id="shots_per_game_2">&nbsp</td>
+                          </tr>
+                          <tr>
+                              <td id="shots_allowed_per_game_2">&nbsp</td>
+                          </tr>
+                          <tr>
+                              <td id="save_percentage_2">&nbsp</td>
+                          </tr>
+
+                      </table>
+
+      </div>
+  </div>
+
+
+<script>
+
+document.getElementById('team_1_year').value = '2021-2022'
+document.getElementById('team_2_year').value = '2021-2022'
+
+document.addEventListener('DOMContentLoaded', bindButtons);
+function bindButtons() {
+  document.getElementById('submit').addEventListener('click', function(event){
+    let req = new XMLHttpRequest();
+    let teams = {team_1_name: null, team_1_year: null, team_2_name: null, team_2_year: null};
+
+    teams.team_1_name = document.getElementById('team_1_name').value;
+    teams.team_1_year = document.getElementById('team_1_year').value;
+    teams.team_2_name = document.getElementById('team_2_name').value;
+    teams.team_2_year = document.getElementById('team_2_year').value;
+    req.open('POST', '/compare?team1=' + teams.team_1_name + '&team1_year=' + teams.team_1_year +
+            '&team2=' + teams.team_2_name + '&team2_year=' + teams.team_2_year);
+
+
+
+req.addEventListener('load', function() {
+  if (req.status >= 200 && req.status < 400) {
+    let response = (JSON.parse(req.responseText));
+    console.log(response);
+    console.log(response[0].wins);
+    console.log(response[0].wins > response[1].wins);
+
+    document.getElementById("wins_1").innerText = response[0].wins;
+
+    document.getElementById("losses_1").innerText =response[0].losses;
+
+    document.getElementById("ot_1").innerText =(response[0].ot);
+
+    document.getElementById("pts_1").innerText =(response[0].pts);
+
+    document.getElementById("goals_per_game_1").innerText =(response[0].goalsPerGame);
+
+    document.getElementById("goals_against_per_game_1").innerText =response[0].goalsAgainstPerGame;
+
+    document.getElementById("power_play_percentage_1").innerText =(response[0].powerPlayPercentage);
+
+    document.getElementById("penalty_kill_percentage_1").innerText =(response[0].penaltyKillPercentage);
+
+    document.getElementById("shots_per_game_1").innerText =(response[0].shotsPerGame);
+
+    document.getElementById("shots_allowed_per_game_1").innerText = (response[0].shotsAllowed);
+
+    document.getElementById("save_percentage_1").innerText = (response[0].savePctg);
+
+
+    document.getElementById("wins_2").innerText = (response[1].wins);
+
+    document.getElementById("losses_2").innerText = (response[1].losses);
+
+    document.getElementById("ot_2").innerText = (response[1].ot);
+
+    document.getElementById("pts_2").innerText =(response[1].pts);
+
+    document.getElementById("goals_per_game_2").innerText =(response[1].goalsPerGame);
+
+    document.getElementById("goals_against_per_game_2").innerText =(response[1].goalsAgainstPerGame);
+
+    document.getElementById("power_play_percentage_2").innerText =(response[1].powerPlayPercentage);
+
+    document.getElementById("penalty_kill_percentage_2").innerText =(response[1].penaltyKillPercentage);
+
+    document.getElementById("shots_per_game_2").innerText =(response[1].shotsPerGame);
+
+    document.getElementById("shots_allowed_per_game_2").innerText =(response[1].shotsAllowed);
+
+    document.getElementById("save_percentage_2").innerText = (response[1].savePctg);
+
+    let team_1_table = document.getElementById("team1_table");
+    let team_2_table = document.getElementById("team2_table");
+
+    if (response[0].wins > response[1].wins){
+      document.getElementById('wins_1').style.color = 'green';
+      document.getElementById('wins_2').style.color = 'red';
+    } else if (response[0].wins < response[1].wins) {
+      document.getElementById('wins_2').style.color = 'green';
+      document.getElementById('wins_1').style.color = 'red';
+    }
+
+
+
+  } else {
+    console.log("Error " + req.statusText);
+  }});
+  req.send(null)
+  event.preventDefault();
+  })
+}
+
+let reset = function() {
+document.getElementById("wins_1").innerHTML = "&nbsp";
+}
+
+
+function set_color(stat1, stat2) {
+  if (stat1 > stat2){
+    return 1;
+  } else if (stat1 < stat2) {
+    return 2;
+  } else {
+    return 0;
+  }
+}
+
+
+</script>
+
+
+{% endblock %}

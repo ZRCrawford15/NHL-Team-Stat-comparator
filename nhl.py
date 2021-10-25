@@ -12,7 +12,7 @@ def get_team_id(name, resp):
 
     for key in resp['teams']:
         if key['name'] == name:
-            print(f"Key value is {key['id']}")
+            # print(f"Key value is {key['id']}")
             return key['id']
 
 
@@ -34,7 +34,10 @@ def get_team_stats(resp):
     :param resp: team JSON object
     :return:
     """
+    # TODO: Check for valid input
     return resp['teams'][0]['teamStats'][0]['splits'][0]['stat']
+
+
 
 
 if __name__ == "__main__":
@@ -64,4 +67,4 @@ if __name__ == "__main__":
     team_1.set_wins(team_1_object['wins'])
 
 
-    print(f"{team_1.get_name()} won {team_1.get_wins()} games in the year {year}")
+    # print(f"{team_1.get_name()} won {team_1.get_wins()} games in the year {year}")
