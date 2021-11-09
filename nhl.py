@@ -1,4 +1,4 @@
-import requests
+import requests, send, json
 from team import *
 
 
@@ -39,32 +39,45 @@ def get_team_stats(resp):
 
 
 
-
 if __name__ == "__main__":
 
-    URL = "https://statsapi.web.nhl.com/api/v1/teams"
-    response = requests.get(URL)
-    res = response.json()
+    wiki_client = send.WikiClient()
+    test = wiki_client.retrieve_image_url("Boston_Bruins")
 
-    year = "2000-2001"                              # TODO: Get this from the GUI and covert it to 'YYYYYYYY'
 
-    # Remove the - from the input or just make value of input = YYYYYYYY without -
-    test = year.replace('-', '')
-    # print(test)
 
-    team_1_name = "Colorado Avalanche"             # TODO: Get this from the GUI with the year
 
-    # 1) Get the team ID
-    team_1_ID = get_team_id(team_1_name, res)
+    # wiki_client.retrieve_image_url('Persian_Cat')
 
-    # 2) Get the team object for the year
-    team_1_object = get_team_object(team_1_ID, "20002001")
 
-    # 3) create the team
-    team_1 = Team(team_1_name, team_1_ID)
 
-    # 4) add stats to team from the team object
-    team_1.set_wins(team_1_object['wins'])
+
+
+    # Test Stuff
+
+    # URL = "https://statsapi.web.nhl.com/api/v1/teams"
+    # response = requests.get(URL)
+    # res = response.json()
+    #
+    # year = "2000-2001"                              # TODO: Get this from the GUI and covert it to 'YYYYYYYY'
+    #
+    # # Remove the - from the input or just make value of input = YYYYYYYY without -
+    # test = year.replace('-', '')
+    # # print(test)
+    #
+    # team_1_name = "Montréal Canadiens"             # TODO: Get this from the GUI with the year
+    #
+    # # 1) Get the team ID
+    # team_1_ID = get_team_id(team_1_name, res)
+    #
+    # # 2) Get the team object for the year
+    # team_1_object = get_team_object(team_1_ID, "20002001")
+    #
+    # # 3) create the team
+    # team_1 = Team(team_1_name, team_1_ID)
+    #
+    # # 4) add stats to team from the team object
+    # team_1.set_wins(team_1_object['wins'])
 
 
     # print(f"{team_1.get_name()} won {team_1.get_wins()} games in the year {year}")

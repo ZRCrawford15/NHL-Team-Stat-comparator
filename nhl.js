@@ -22,10 +22,10 @@ req.addEventListener('load', function() {
 
     // make function?
     let wins_1 = document.createTextNode(response[0].wins);
-    document.getElementById("wins_1").appendChild(wins_1);
+    document.getElementById("wins_1").innerText = wins_1;
 
     let losses_1 = document.createTextNode(response[0].losses);
-    document.getElementById("losses_1").appendChild(losses_1);
+    document.getElementById("losses_1").innerText = losses_1;
 
     let ot_1 = document.createTextNode(response[0].ot);
     document.getElementById("ot_1").appendChild(ot_1);
@@ -96,7 +96,7 @@ req.addEventListener('load', function() {
       document.getElementById('wins_2').style.border = 'thick green';
       document.getElementById('wins_1').style.border = 'thick red';
     }
-    
+
 
 
   } else {
