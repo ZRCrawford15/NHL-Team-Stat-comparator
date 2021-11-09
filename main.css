@@ -2,6 +2,7 @@ body {
     margin: 100px 240px 32px;
     font-family: sans-serif;
 
+
 }
 
 .images {
@@ -35,4 +36,5 @@ img {
 
 th, td {
     border: 1px solid black;
+    font-weight: bold;
 }

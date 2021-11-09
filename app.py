@@ -24,10 +24,32 @@ def index():
     return render_template('nhl.html')
 
 
+@app.route('/picture', methods=['POST'])
+def get_picture():
+
+    url_arr = []
+
+    data = request.args
+    team_1_name = data['team1']
+    team_2_name = data['team2']
+
+    team_1_picture = nhl.get_team_picture(team_1_name)
+    team_2_picture = nhl.get_team_picture(team_2_name)
+
+    url_arr.append(team_1_picture)
+    url_arr.append(team_2_picture)
+
+    return url_arr
+
+
+
 @app.route('/compare', methods=['POST'])
 def handle_data():
 
     # TODO get team picture from microservice
+
+    team_1_picture = {}
+    team_2_picture = {}
 
     data = request.args
     team_1 = data['team1']
@@ -59,9 +81,11 @@ def handle_data():
     team_2_obj = nhl.get_team_object(team_2_ID, team_2_year_parsed)
 
 
-    return jsonify(team_1_obj, team_2_obj)
+    team_1_picture['team_1_picture'] = nhl.get_team_picture(team_1)
+    team_2_picture['team_2_picture'] = nhl.get_team_picture(team_2)
 
 
+    return jsonify(team_1_obj, team_2_obj, team_1_picture, team_2_picture)
 
 
 if __name__ == '__main__':

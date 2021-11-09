@@ -38,18 +38,17 @@ def get_team_stats(resp):
     return resp['teams'][0]['teamStats'][0]['splits'][0]['stat']
 
 
+def get_team_picture(team):
 
-if __name__ == "__main__":
+    # Removes French spelling for wikipedia
+    if team == "Montréal Canadiens":
+        team = "Montreal Canadiens"
 
+
+    new_name = team.replace(" ", "_")
     wiki_client = send.WikiClient()
-    test = wiki_client.retrieve_image_url("Boston_Bruins")
-
-
-
-
-    # wiki_client.retrieve_image_url('Persian_Cat')
-
-
+    url_link = wiki_client.retrieve_image_url(new_name)
+    return url_link
 
 
 

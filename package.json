@@ -1,0 +1,28 @@
+{
+  "name": "wikiscrape-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "run": "node wikiservice.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.8.0",
+    "axios": "^0.24.0",
+    "cheerio": "^1.0.0-rc.10",
+    "dotenv": "^10.0.0",
+    "node": "^17.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/burneverything1/wikiscrape-service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/burneverything1/wikiscrape-service/issues"
+  },
+  "homepage": "https://github.com/burneverything1/wikiscrape-service#readme",
+  "description": ""
+}
