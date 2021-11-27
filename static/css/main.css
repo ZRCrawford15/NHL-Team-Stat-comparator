@@ -4,14 +4,25 @@ body {
 
 }
 
+button {
+  transition-duration: 0.4s;
+  background-color: transparent;
+  font-size: 20px;
+  border-radius: 8px;
+  color: black;
+}
+
+button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  font-size: 20px;
+}
+
 .images {
     border-radius: 4px;
     background-color: #F3F3F3;
-
     display: flex;
     justify-content: space-between;
-
-
 }
 
 img {
@@ -35,6 +46,17 @@ img {
 
 th, td {
     border: 1px solid black;
+    border-radius: 12px;
+    padding: 2px;
+    text-align: center;
 }
 
+select {
+    border-radius: 12px;
+    font-size: 16px;
+}
 
+input{
+    border-radius: 12px;
+    font-size: 16px;
+}
