@@ -28,6 +28,9 @@ def get_team_object(ID, year):
     return get_team_stats(team)
 
 
+def get_team_awards(ID, year):
+    return
+
 def get_team_stats(resp):
     """
     Gets the season stats for a team from the JSON object

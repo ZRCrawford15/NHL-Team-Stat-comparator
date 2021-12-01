@@ -21,23 +21,6 @@ class WikiClient(object):
             on_message_callback=self.on_response,
             auto_ack=True)
 
-        # # Set up connection
-        # self.url = "amqps://mgugeoix:87J3jli0KfcxKcxG44XnwtZ0mC369GTP@cattle.rmq2.cloudamqp.com/mgugeoix"
-        # self.params = pika.URLParameters(self.url)
-        # self.context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
-        # self.params.ssl_options = pika.SSLOptions(self.context, server_hostname='cattle.rmq2.cloudamqp.com')
-        # self.connection = pika.BlockingConnection(self.params)
-        #
-        # self.channel = self.connection.channel()
-        #
-        # result = self.channel.queue_declare(queue='wikiscrape-zach', exclusive=False, durable=False)
-        # self.callback_queue = result.method.queue
-        #
-        # self.channel.basic_consume(
-        #     queue=self.callback_queue,
-        #     on_message_callback=self.on_response,
-        #     auto_ack=True)
-
     def on_response(self, ch, method, props, body):
         if self.corr_id == props.correlation_id:
             self.response = body
