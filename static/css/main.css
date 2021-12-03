@@ -6,10 +6,10 @@ body {
 
 button {
   transition-duration: 0.4s;
-  background-color: transparent;
+  background-color: #282828;
   font-size: 20px;
   border-radius: 8px;
-  color: black;
+  color: white;
 }
 
 button:hover {

@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app, support_credentials=True)
 app.config['SECRET_KEY'] = 'thecodex '
 
-
+# List of teams for reference
 # TEAMS = ("Anaheim Ducks", "Arizona Coyotes", "Boston Bruins", "Buffalo Sabres", "Calgary Flames", "Carolina Hurricanes", "Chicago Blackhawks", "Colorado Avalanche",
 #          "Columbus Blue Jackets", "Dallas Stars", "Detroit Red Wings", "Edmonton Oilers", "Florida Panthers",
 #          "Los Angeles Kings", "Minnesota Wild", "Montreal Canadians", "Nashville Predators", "New Jersey Devils",
@@ -45,8 +45,6 @@ def get_picture():
 
 @app.route('/compare', methods=['POST'])
 def handle_data():
-
-    # TODO get team picture from microservice
 
     team_1_picture = {}
     team_2_picture = {}
